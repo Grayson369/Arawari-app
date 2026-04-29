@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arawari Language App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- 顶部导航栏 -->
+  <nav class="navbar">
+    <div class="nav-logo" onclick="showView('home')">
+      🌿 Arawari
+    </div>
+    <div class="nav-links">
+      <button onclick="showView('home')" class="nav-btn" id="nav-home">Home</button>
+      <button onclick="showView('dictionary')" class="nav-btn" id="nav-dictionary">Dictionary</button>
+      <button onclick="showView('categories')" class="nav-btn" id="nav-categories">Categories</button>
+    </div>
+  </nav>
+
+  <!-- ===================== HOME 页面 ===================== -->
+  <div id="view-home" class="view">
+    <div class="hero">
+      <h1>Arawari Language</h1>
+      <p>Balanggarra Country · Wyndham, Western Australia</p>
+
+      <!-- 搜索栏 -->
+      <div class="search-box">
+        <input
+          type="text"
+          id="home-search"
+          placeholder="Search a word..."
+          oninput="handleHomeSearch(this.value)"
+        />
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <!-- 搜索结果（默认隐藏） -->
+      <div id="home-search-results" class="search-results"></div>
+    </div>
+
+    <!-- 分类卡片 -->
+    <div class="section">
+      <h2>Browse by Category</h2>
+      <div class="category-grid" id="home-category-grid"></div>
+    </div>
+  </div>
+
+  <!-- ===================== DICTIONARY 页面 ===================== -->
+  <div id="view-dictionary" class="view hidden">
+    <div class="page-header">
+      <h1>Dictionary</h1>
+      <p>All Arawari words</p>
+    </div>
+
+    <div class="section">
+      <div class="search-box">
+        <input
+          type="text"
+          id="dict-search"
+          placeholder="Search a word..."
+          oninput="handleDictSearch(this.value)"
+        />
+        <span class="search-icon">🔍</span>
+      </div>
+
+      <div class="word-list" id="dict-word-list"></div>
+    </div>
+  </div>
+
+  <!-- ===================== CATEGORIES 页面 ===================== -->
+  <div id="view-categories" class="view hidden">
+    <div class="page-header">
+      <h1>Categories</h1>
+      <p>Explore words by topic</p>
+    </div>
+
+    <div class="section">
+      <div class="category-grid" id="categories-grid"></div>
+    </div>
+  </div>
+
+  <!-- ===================== CATEGORY DETAIL 页面 ===================== -->
+  <div id="view-category-detail" class="view hidden">
+    <div class="page-header" id="category-detail-header">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <h1 id="category-detail-title"></h1>
+      <p id="category-detail-desc"></p>
+    </div>
+
+    <div class="section">
+      <div class="word-grid" id="category-detail-words"></div>
+    </div>
+  </div>
+
+  <!-- ===================== 单词详情弹窗 ===================== -->
+  <div id="word-modal" class="modal hidden" onclick="closeModal(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeWordModal()">✕</button>
+      <div class="modal-category-tag" id="modal-tag"></div>
+      <h2 class="modal-word" id="modal-word"></h2>
+      <p class="modal-translation" id="modal-translation"></p>
+      <div class="modal-pronunciation" id="modal-pronunciation-wrap">
+        <span class="pron-label">Pronunciation:</span>
+        <span class="pron-text" id="modal-pronunciation"></span>
+      </div>
+      <div class="modal-notes" id="modal-notes-wrap">
+        <span class="notes-label">Notes:</span>
+        <span class="notes-text" id="modal-notes"></span>
+      </div>
+      <button class="audio-btn" id="modal-audio-btn" onclick="playAudio()">
+        🔊 Play Pronunciation
+      </button>
+      <p class="audio-placeholder">* Audio coming soon</p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

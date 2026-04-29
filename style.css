@@ -1,0 +1,520 @@
+/* ============================================
+   颜色变量 - 修改这里可以整体换色
+   ============================================ */
+:root {
+  --primary:       #2D6A4F;
+  --primary-light: #52B788;
+  --accent:        #D4A017;
+  --bg:            #F8F4EF;
+  --bg-card:       #FFFFFF;
+  --text-dark:     #2C1810;
+  --text-mid:      #5C4033;
+  --text-light:    #8D6E63;
+  --border:        #E8DDD6;
+  --shadow:        0 2px 12px rgba(0,0,0,0.08);
+  --radius:        14px;
+}
+
+/* ============================================
+   基础重置
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text-dark);
+  min-height: 100vh;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ============================================
+   导航栏
+   ============================================ */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  height: 64px;
+  background: var(--primary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-btn {
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 6px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+  background: white;
+  color: var(--primary);
+  border-color: white;
+}
+
+/* ============================================
+   Hero 区域（首页顶部）
+   ============================================ */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: white;
+  text-align: center;
+  padding: 60px 24px 40px;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-bottom: 32px;
+}
+
+/* ============================================
+   页面标题（非首页）
+   ============================================ */
+.page-header {
+  background: var(--primary);
+  color: white;
+  padding: 40px 32px 32px;
+}
+
+.page-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.page-header p {
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   搜索框
+   ============================================ */
+.search-box {
+  position: relative;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 14px 48px 14px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  color: var(--text-dark);
+}
+
+.search-icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+/* ============================================
+   搜索结果下拉
+   ============================================ */
+.search-results {
+  max-width: 480px;
+  margin: 8px auto 0;
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.search-result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background: var(--bg);
+}
+
+.search-result-item .word {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.search-result-item .translation {
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+.search-no-result {
+  padding: 16px 20px;
+  color: var(--text-light);
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+/* ============================================
+   内容区域
+   ============================================ */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.section h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+}
+
+/* ============================================
+   分类卡片网格
+   ============================================ */
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-top: 5px solid;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.category-icon {
+  font-size: 2.4rem;
+  margin-bottom: 14px;
+}
+
+.category-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.category-count {
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.category-desc {
+  font-size: 0.85rem;
+  color: var(--text-mid);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* ============================================
+   词典单词列表
+   ============================================ */
+.word-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.word-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-left: 4px solid;
+}
+
+.word-list-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+}
+
+.word-list-left .word-text {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.word-list-left .word-pron {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+
+.word-list-right {
+  text-align: right;
+}
+
+.word-list-right .word-translation {
+  font-size: 0.95rem;
+  color: var(--text-mid);
+}
+
+.word-list-right .word-category-tag {
+  font-size: 0.75rem;
+  padding: 2px 10px;
+  border-radius: 10px;
+  margin-top: 4px;
+  display: inline-block;
+  color: white;
+}
+
+/* ============================================
+   分类详情 - 单词卡片网格
+   ============================================ */
+.word-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.word-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+  border-bottom: 4px solid;
+}
+
+.word-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.word-card .wc-word {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+
+.word-card .wc-translation {
+  font-size: 0.9rem;
+  color: var(--text-mid);
+}
+
+.word-card .wc-pron {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 6px;
+}
+
+/* ============================================
+   返回按钮
+   ============================================ */
+.back-btn {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-bottom: 16px;
+  transition: background 0.2s;
+}
+
+.back-btn:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* ============================================
+   单词详情弹窗
+   ============================================ */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  padding: 24px;
+}
+
+.modal-card {
+  background: white;
+  border-radius: 20px;
+  padding: 36px 32px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-mid);
+  transition: background 0.2s;
+}
+
+.modal-close:hover {
+  background: var(--border);
+}
+
+.modal-category-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: white;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.modal-word {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.modal-translation {
+  font-size: 1.2rem;
+  color: var(--text-mid);
+  margin-bottom: 20px;
+}
+
+.modal-pronunciation,
+.modal-notes {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pron-label,
+.notes-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-right: 6px;
+}
+
+.pron-text,
+.notes-text {
+  color: var(--text-mid);
+}
+
+.audio-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.audio-btn:hover {
+  background: var(--primary-light);
+}
+
+.audio-placeholder {
+  text-align: center;
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 8px;
+}
+
+/* ============================================
+   响应式
+   ============================================ */
+@media (max-width: 600px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .nav-btn {
+    padding: 5px 12px;
+    font-size: 0.82rem;
+  }
+
+  .section {
+    padding: 24px 16px;
+  }
+
+  .word-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}
