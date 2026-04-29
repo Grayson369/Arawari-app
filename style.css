@@ -469,6 +469,46 @@ body {
   color: var(--text-mid);
 }
 
+.modal-sentences {
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.sentences-label {
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 8px;
+}
+
+.sentences-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sentences-list li {
+  background: var(--bg);
+  border-left: 3px solid var(--primary-light);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.sentence-arawari {
+  display: block;
+  font-weight: 600;
+  color: var(--text-dark);
+  font-style: italic;
+}
+
+.sentence-english {
+  display: block;
+  color: var(--text-mid);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
 .audio-btn {
   width: 100%;
   margin-top: 20px;
